@@ -1,0 +1,9 @@
+{
+	"description" : "The GaMemory Application with Composer",
+	"require": {
+		"php": ">=5.3.2",
+		"leafo/scssphp": "0.0.12"
+	},
+	"require-dev": {
+	}
+}

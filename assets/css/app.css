@@ -1,0 +1,765 @@
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Medium.eot');
+  src: url('../fonts/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Montserrat-Medium.svg#Montserrat-Medium') format('svg'),
+       url('../fonts/Montserrat-Medium.ttf') format('truetype'),
+       url('../fonts/Montserrat-Medium.woff') format('woff'),
+       url('../fonts/Montserrat-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'AntiqueOgameStd';
+  src: url('../fonts/AntiqueOgameStd-Italic.eot');
+  src: url('../fonts/AntiqueOgameStd-Italic.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/AntiqueOgameStd-Italic.svg#AntiqueOgameStd-Italic') format('svg'),
+       url('../fonts/AntiqueOgameStd-Italic.ttf') format('truetype'),
+       url('../fonts/AntiqueOgameStd-Italic.woff') format('woff'),
+       url('../fonts/AntiqueOgameStd-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --gold: #D08F00;
+  --silver: #878787;
+  --bronze: #CF640C;
+  --red: #F44336;
+  --red-light: #fbe5e3;
+  --blue: #0729c0;
+  --gray-1: #A1A1A1;
+  --gray-2: #828282;
+  --gray-3: #878787;
+  --white: #ffffff;
+  --green: #00c092;
+  --grey-100: #f8f8f8;
+  --black: #000000;
+}
+/* ==========================================================================
+   02.MAIN
+   ========================================================================== */
+   
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: 0 0;
+}
+html{
+    overflow: hidden;
+}
+html, body {
+    width: 100%;
+	min-height: 100%;
+    height: 100%;
+    position: relative;
+}
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+	background-color: var(--white);
+    padding: 0!important;
+    margin: 0!important;
+    line-height: 1.7;
+    color: var(--black);
+    font-weight: 400;
+}
+body,
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+	supported by Chrome and Opera */
+}
+.allowselect {
+	-webkit-touch-callout: initial; /* iOS Safari */
+	-webkit-user-select: initial; /* Safari */
+	-khtml-user-select: initial; /* Konqueror HTML */
+	-moz-user-select: initial; /* Firefox */
+	-ms-user-select: initial; /* Internet Explorer/Edge */
+	user-select: initial; /* Non-prefixed version, currently
+	supported by Chrome and Opera */
+}
+s { 
+    text-decoration: line-through;
+}
+hr{
+    height: 1px;
+    border: 0;
+    background: rgb(224, 224, 224);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(224, 224, 224), rgba(0, 0, 0, 0));
+}
+input, textarea, select, button,
+body {
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size: 15px;
+	font-family: Montserrat,tahoma;
+}
+
+*{
+	outline:0 !important; 
+}
+input,
+button
+{
+	background: none;
+	border: 0;
+	box-sizing: border-box;
+	font-size: inherit;
+	position: relative;
+	vertical-align: middle;
+}
+button
+{
+	padding: 10px 20px;
+}
+
+.background-contain {
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+}
+
+body>.page-wrapper {
+	transition: all 1600ms ease-in-out;
+    -moz-opacity: 0;
+    -webkit-opacity: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+body.loaded>.page-wrapper {
+    -moz-opacity: 1;
+    -webkit-opacity: 1;
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   01.game-header
+   ========================================================================== */ 
+.game-header {
+	width: 100%;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	min-height: 50px;
+	filter: none;
+	z-index: 9995;
+	position: fixed;
+	right: 0px;
+	left: 0px;
+	top: 0px;
+	background-color: var(--white);
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.game-header .logo svg{
+	width: 218px;
+	height: 50px;
+	position: absolute;
+	left: 38px;
+	top: 0px;
+	cursor: pointer;
+}
+@media screen and (max-width: 520px) {
+	.game-footer .bottom-menu .copyright,
+	.game-header .logo svg{
+		display: none;
+	}
+}
+.game-header .logo:hover svg,
+.game-header .logo:hover svg *
+{
+	fill: var(--gray-2);
+}
+.game-header .top-menu,
+.game-header .top-menu li,
+.middle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.game-header .top-menu {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 50px;
+    top: 0;
+    height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--black);
+  overflow: hidden;
+}
+.game-header .top-menu > li {
+    margin-left: 50px;
+    padding: 0;
+    position: relative;
+    height: 50px;
+}
+.game-header .top-menu > li svg {
+	height: 40px;
+	width: 40px;
+}
+.game-header .top-menu > li svg,
+.game-header .top-menu > li svg *
+{
+	fill: var(--black);
+}
+@media screen and (max-width: 1120px) {
+	.game-header .top-menu > li {
+		margin-left: 40px;
+	}
+}
+.game-header .top-menu > li .timer
+{
+    border: solid 1px var(--gray-3);
+    border-radius: 6px;
+    padding: 0px 9px;
+    font-weight: 700;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 10px;
+	background-color: var(--white);
+	position: relative;
+	overflow: hidden;
+}
+.game-header .top-menu > li .timer .fill {
+    z-index: 0;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-event: none;
+}
+.game-header .top-menu > li .timer .fill .mask {
+    position: absolute;
+	top: 0;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    background-color: var(--red-light);
+}
+.game-header .top-menu > li .timer .time {
+    z-index: 1;
+    position: relative;
+    pointer-event: none;
+}
+.game-header .top-menu a.play-stop-button svg {
+	cursor: pointer;
+}
+.game-header .top-menu a.play-stop-button svg,
+.game-header .top-menu a.play-stop-button svg *{
+	fill: transparent;
+}
+.game-header .top-menu .timer.auto-countUp + a.play-stop-button svg.stop-svg,
+.game-header .top-menu a.play-stop-button svg.play-svg
+{
+	display: block;
+}
+.game-header .top-menu .timer.auto-countUp + a.play-stop-button svg.play-svg,
+.game-header .top-menu a.play-stop-button svg.stop-svg
+{
+	display: none;
+}
+.game-header .top-menu a.play-stop-button .rectangle, 
+.game-header .top-menu a.play-stop-button .triangle, 
+.game-header .top-menu a.play-stop-button .circle {
+	stroke-width: 7;
+	stroke-linecap: round;
+}
+
+.game-header .top-menu a.play-stop-button .rectangle {
+	stroke-dasharray: 300px;
+	stroke-dashoffset: 597;
+	stroke: var(--black);
+	transform: translateY(0);
+	transition: all 0.7s ease-in-out;
+}
+.game-header .top-menu a.play-stop-button .triangle {
+	stroke-dasharray: 240;
+	stroke-dashoffset: 480;
+	stroke: var(--black);
+	transform: translateY(0);
+	transition: all 0.7s ease-in-out;
+}
+.game-header .top-menu a.play-stop-button:hover .rectangle,
+.game-header .top-menu a.play-stop-button:hover .triangle {
+	stroke-dashoffset: 0;
+	opacity: 1;
+	stroke:  var(--black);
+}
+
+.game-header .top-menu a.play-stop-button .circle {
+	stroke:  var(--black);
+	stroke-dasharray: 642;
+	stroke-dashoffset: 636;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.game-header .top-menu a.play-stop-button:hover .circle {
+	stroke-dashoffset: 0;
+	opacity: 1;
+}
+.game-header .top-menu a.play-stop-button {
+	z-index: 10;
+	top: 0px;
+    padding: 0 8px;
+    margin: 0;
+}
+
+.game-header .top-menu a.play-stop-button.disabled {
+	pointer-events: none;
+}
+/* ==========================================================================
+   02.game-content
+   ========================================================================== */ 
+.game-content {
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.game-content .game-board-container
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+	text-align: center;
+    background-color: var(--white);
+    display: block;
+	
+	background-image: url('../images/background-small.jpg');
+}
+.spinner > div,
+.half-radius
+{ 
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.loaded .loader-overlay,
+.visibility-hidden
+{
+  -moz-opacity: 0;
+  -webkit-opacity: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: hidden;
+}
+
+/* ==========================================================================
+   02. PRELOAD ANIMATION
+   ========================================================================== */	
+.loader-content,
+.loader-overlay {
+  -moz-opacity: 1;
+  -moz-perspective: 10000;
+  -moz-perspective: 10000px;
+  -moz-transition: all 800ms ease-in-out;
+  -o-transition: all 800ms ease-in-out;
+  -webkit-opacity: 1;
+  -webkit-perspective: 10000;
+  -webkit-perspective: 10000px;
+  -webkit-transition: all 800ms ease-in-out;
+  filter: alpha(opacity=100);
+  opacity: 1;
+  overflow: hidden;
+  perspective: 10000;
+  perspective: 10000px;
+  transition: all 800ms ease-in-out;
+  zoom: 1;
+}
+.loader-content {
+	position: relative;
+	width: 100%;
+	height: 200;
+}
+.loader-overlay {
+  background-color: var(--white);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+}
+.loader-inner {
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+  position: absolute;
+  top: 50%;
+}
+.loaded  .loader-overlay{
+  zoom: 1;
+}
+.spinner {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  bottom: 0;
+  height: 2em;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  user-select: none;
+  width: 10em;
+}
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+  margin-right: 1em;
+}
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+  margin-right: 1em;
+}
+.spinner > div {
+  -webkit-animation-fill-mode: both;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation-fill-mode: both;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  background: var(--red);
+}
+
+@-webkit-keyframes bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.game-content .game-waiting-loader,
+.game-content
+{
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;
+}
+.game-content #game-board {
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50px;
+    bottom: 46px;
+    z-index: 1;
+    height: auto;
+    display: none;
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px 20px;
+}
+.game-content.loaded #game-board {
+    display: block;
+}
+.game-content.loaded #game-board > article {
+    display: inline-block;
+    margin: 2px;
+    height: calc(25% - 9px);
+    width: calc(14% - 4px);
+    perspective: 1000px;
+}
+.game-content.loaded #game-board > article > .card {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transition: all 0.6s ease 0s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+.game-content.loaded #game-board > article > .card.disabled
+{
+	pointer-events: none;
+}
+.game-content.loaded #game-board > article > .card > .card_front, 
+.game-content.loaded #game-board > article > .card > .card_back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: all 0.6s ease 0s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: var(--white) 8px solid;
+    background-color: var(--white) ;
+	border-radius: 8px;
+    display: table;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.game-content.loaded #game-board > article > .card > .card_back {
+    cursor: pointer;
+    visibility: visible;
+    transform: rotateY(0deg);
+}
+.game-content.loaded #game-board > article > .card > .card_back::before {
+    content: '';
+    border-radius: 8px;
+    background-image: url('../images/background-card-back.jpg');
+    background-position: center center;
+    background-repeat: repeat;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: var(--blue) 1px solid;
+}
+
+.game-content.loaded #game-board > article > .card > .card_front {
+    font-size: 1.3rem;
+    line-height: 0.9;
+    text-align: center;
+    font-weight: bold;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    word-wrap: break-word;
+    word-break: break-all;
+    transform: rotateY(-180deg);
+}
+
+.game-content.loaded #game-board > article.active .card_front {
+    transform: rotateY(0deg);
+}
+.game-content.loaded #game-board > article.active .card_back {
+    transform: rotateY(180deg);
+}
+.game-content .game-waiting-loader {
+    overflow: hidden;
+    -moz-opacity: 0.77;
+    -webkit-opacity: 0.77;
+    filter: alpha(opacity=77);
+    opacity: 0.77;
+    visibility: visible;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50px;
+    bottom: 46px;
+    z-index: 1;
+    height: auto;
+    display: block;
+}
+.game-content.loaded .game-waiting-loader {
+    display: none;
+}
+.game-content .game-waiting-loader > span {
+    bottom: 50%;
+    height: 3em;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    user-select: none;
+    width: 80%;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--red);
+    word-wrap: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.game-footer {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    min-height: 46px;
+    filter: none;
+    box-shadow: 0 -2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    z-index: 9995;
+    background-color: var(--white);
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+.game-footer, 
+.game-footer .bottom-menu,
+.game-footer .bottom-menu > li 
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.game-footer .game-progressBar {
+    width: 100%;
+    height: 8px;
+    background: var(--gray-1);
+    position: relative;
+}
+
+.game-footer .game-progressBar .timer .fill {
+    z-index: 0;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-event: none;
+}
+.game-footer .game-progressBar .timer .fill .mask {
+    position: absolute;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    background-color: var(--bronze);
+}
+.game-footer-inner {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    min-height: 38px;
+}
+.game-footer .bottom-menu {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    height: 38px;
+}
+.game-footer .menu-1 {
+    left: 0;
+}
+.game-footer .menu-2 {
+    right: 0;
+}
+.game-footer .bottom-menu .copyright > label {
+    cursor: pointer;
+}
+
+.game-footer-inner .copyright span {
+  color: var(--red);
+}
+.game-footer .bottom-menu > li {
+    margin: 0;
+    padding: 0px 6px;
+    position: relative;
+    height: 38px;
+}
+.game-footer .bottom-menu > li .footer-icon {
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+	width: 26px;
+	height: 26px;
+}
+.game-footer .bottom-menu > li.score-1 .footer-icon {
+    background-image: url(../images/medals/1.jpg);
+}
+.game-footer .bottom-menu > li.score-2 .footer-icon {
+    background-image: url(../images/medals/2.jpg);
+}
+.game-footer .bottom-menu > li.score-3  .footer-icon{
+    background-image: url(../images/medals/3.jpg);
+}
+.game-footer .bottom-menu > li .badge {
+    pointer-events: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 3px;
+    margin: 3px;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1;
+    min-width: 10px;
+    min-height: 10px;
+    color: var(--white);
+    text-align: center;
+    white-space: nowrap;
+    display: inline-block;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+}
+.game-footer .bottom-menu > li.score-1 .badge {
+	background-color: var(--gold);
+}
+.game-footer .bottom-menu > li.score-2 .badge {
+	background-color: var(--silver);
+}
+.game-footer .bottom-menu > li.score-3 .badge {
+	background-color: var(--bronze);
+}
